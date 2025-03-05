@@ -62,6 +62,13 @@ body {
     opacity: 1;
 }
 
+.menu-icon {
+    display: none;
+    color: #e4e4e4;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 .search-bar {
     width: 250px;
     height: 45px;
@@ -422,11 +429,39 @@ body {
 
 @media screen and (max-width: 600px) {
     .header {
+        padding: 10px 5%;
+        background: rgba(2, 4, 25, 0.8);
+    }
+    
+    .menu-icon {
+        display: block;
+    }
+    
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 10px 5%;
+        background: rgba(2, 4, 25, 0.9);
+        border-top: 1px solid rgba(228, 228, 228, 0.2);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         display: none;
+        transition: all 0.3s ease;
+    }
+    
+    .navbar.active {
+        display: block;
+    }
+    
+    .navbar a {
+        display: block;
+        margin: 15px 0;
+        font-size: 16px;
     }
     
     .container {
-        margin-top: 20px;
+        margin-top: 70px;
     }
     
     .text-sci h2 {
@@ -487,11 +522,14 @@ body {
 </head>
 <body>
     <header class="header">
-        <nav class="navbar">
-            <a href="Home.html">Home</a>
-            <a href="#">About</a>
-            <a href="service.html">Services</a>
-            <a href="contact.html">Contact</a>
+        <div class="menu-icon" id="menu-icon">
+            <i class='bx bx-menu'></i>
+        </div>
+        <nav class="navbar" id="navbar">
+            <a href="Home.html" class="btn">Home</a>
+            <a href="#" class="btn">About</a>
+            <a href="service.html" class="btn">Services</a>
+            <a href="contact.html" class="btn">Contact</a>
         </nav>
     </header>
 
@@ -593,6 +631,23 @@ body {
     loginLink.addEventListener('click', (e) => {
         e.preventDefault();
         logregBox.classList.remove('active');
+    });
+    
+    // Mobile menu toggle
+    const menuIcon = document.getElementById('menu-icon');
+    const navbar = document.getElementById('navbar');
+    
+    menuIcon.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        // Change icon based on menu state
+        const icon = menuIcon.querySelector('i');
+        if (navbar.classList.contains('active')) {
+            icon.classList.remove('bx-menu');
+            icon.classList.add('bx-x');
+        } else {
+            icon.classList.remove('bx-x');
+            icon.classList.add('bx-menu');
+        }
     });
     </script>
 </body>
