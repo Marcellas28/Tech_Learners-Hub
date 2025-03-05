@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Tech Learners</title>
+    <style>
+        :root {
+            --primary: #81225a;
+            --primary-dark: #671c48;
+            --primary-light: #fdf2f8;
+            --white: #ffffff;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-700: #374151;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: var(--gray-900);
+            background-color: var(--gray-100);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 8rem 0 4rem;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .page-title p {
+            color: var(--gray-700);
+            font-size: 1.1rem;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-group {
+            margin-bottom: 2rem;
+        }
+
+        .info-group h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .info-group p {
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 0.375rem;
+            transition: background-color 0.2s;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Tech Learners Hub</a>
+            <nav>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="service.html">Courses</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="index.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-title">
+                <h1>Contact Us</h1>
+                <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            </div>
+
+        
+
+                <div class="contact-info">
+                    <div class="info-group">
+                        <h3>Contact Information</h3>
+                        <p>Email: danwits28@gmail.com</p>
+                        <p>Phone: +254 712656502</p>
+                    
+                    </div>
+
+                    <div class="info-group">
+                        <h3>Office Hours</h3>
+                        <p><b>All Days Of The Week</b></p>
+                       
+                    </div>
+
+                    <div class="info-group">
+                        <h3>Location</h3>
+                        <p>Nairobi-Kenya
+                        <p>Cooperative University Of Kenya</p>
+                    </div>
+
+                    <div class="info-group">
+                        <h3>Connect With Us</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="https://facebook.com/techlearnershub" class="social-link">Facebook</a>
+                            <a href="#" class="social-link">LinkedIn</a>
+                            <a href="https://youtube.com/techlearnershub" class="social-link">Youtube</a>
+                            <a href="mailto:danwits2005@yahoo.com" class="social-link">E-Mail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         <footer>
+        <p>&copy; 2025 Tech Learners Hub. All rights reserved.</p>
+    </footer>
+    </main>
+</body>
+</html>
